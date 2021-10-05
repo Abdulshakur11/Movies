@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movies trailer</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+
+  <header>
+    <h1 class="site-title">Movies trailer</h1>
+  </header>
+  <main>
+    <div class="container">
+      <ul class="movies-list movies">
+
+      </ul>
+    </div>
+  </main>
+  
+  <div class="loader">
+    <div class="container">
+      <img class="loading-img" src="./images/loading.svg" alt="lading-mg">
+    </div>
+  </div>
+  <template id="cards-template">
+    <li class="card mt-3 movies__ietm-js " style="width: 18rem;">
+      <img class="card-img-top" src="" alt="">
+      <div class="js-card-body">
+        <h5 class="card-title card-title-js">Card title</h5>
+        <span class="card-year"></span>
+        <p class="card-categoty"></p>
+        <a class="whatch-trailer" href=""></a>
+      </div>
+    </li>
+  </template>
+  <script src="./js/bootstrap.min.js"></script>
+  <script src="./js/utils.js"></script>
+  <script src="js/movies.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>
