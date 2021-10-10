@@ -19,83 +19,6 @@ body {
   margin-right: auto;
 }
 
-.movies-list {
-  width: 100%;
-  max-width: 1200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 0;
-  margin: 0;
-  margin-top: 30px;
-  margin-left: auto;
-  margin-right: auto;
-  
-}
-
-.card-img-top {
-  object-fit: cover;
-  object-position: center;
-}
-
-.movies__ietm-js {
-  position: relative;
-  width: 100%;
-  max-width: 450px;
-  height: 300px;
-  margin: 10px;
-  list-style-type: none;
-  box-shadow: 0px 10px 25px rgba(247, 247, 247, 0.685);
-  transition: all 0.3s ease;
-}
-
-.movies__ietm-js:hover {
-  box-shadow: none;
-}
-
-.movies__ietm-js {
-  background-image: url('https://c4.wallpaperflare.com/wallpaper/341/857/292/neon-asus-4k-rog-wallpaper-preview.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
-
-.card-title-js {
-  font-size: 18px;
-  font-weight: bold;
-  margin: 0;
-  color: #fff;
-}
-
-.card-year {
-  font-size: 14px;
-  font-weight: bold;
-  color: #fff;
-
-}
-
-.card-categoty {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-  color: #fff;
-
-}
-
-.whatch-trailer {
-  position: absolute;
-  font-size: 18px;
-  margin-left: 160px;
-  color: #fff;
-  bottom: 20px;
-  right: 10px;
-}
-
-.js-card-body {
-  padding: 10px;
-}
-
 .site-title {
   width: 100%;
   max-width: 450px;
@@ -111,6 +34,116 @@ body {
   background: linear-gradient(45deg,  #f32170, #def321, #ff00eb);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 550px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+.movies-list {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+.card__img-top {
+  object-fit: cover;
+  object-position: center;
+  height: 150px;
+}
+
+.movies__ietm-js {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  height: 450px;
+  margin: 10px;
+  list-style-type: none;
+  box-shadow: 0px 5px 10px rgba(247, 247, 247, 0.685);
+  transition: all 0.3s ease;
+  background-color: rgb(190, 190, 190);
+}
+
+.movies__ietm-js:hover {
+  box-shadow: none;
+}
+
+.card__title-js {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+  color: rgb(0, 0, 0);
+}
+
+.card__year {
+  font-size: 14px;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+
+}
+
+.card__categoty {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  color: rgb(0, 0, 0);
+
+}
+
+.whatch-trailer {
+  position: absolute;
+  font-size: 18px;
+  margin-left: 160px;
+  color: rgb(0, 0, 0);
+  bottom: 20px;
+  right: 10px;
+  text-decoration: none;
+}
+
+.card__body-js {
+  padding: 10px;
+}
+
+
+.card__summary-wrapper {
+  width: 100%;
+  max-width: 450px;
+  height: 140px;
+  overflow: auto;
+  margin-top: 0px;
+}
+
+.summary__title {
+  width: 100%;
+  max-width: 247px;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+  z-index: 5;
+  background-color: rgb(190, 190, 190);
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  background: rgb(255, 255, 255);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(83, 83, 83);
 }
 
 .loader {

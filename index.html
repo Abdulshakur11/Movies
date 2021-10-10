@@ -14,6 +14,10 @@
 
   <header>
     <h1 class="site-title">Movies trailer</h1>
+
+    <form class="form" action="#">
+        <input type="search" class="form-control search-input">
+    </form>
   </header>
   <main>
     <div class="container">
@@ -22,20 +26,27 @@
       </ul>
     </div>
   </main>
-  
-  <div class="loader">
+
+  <!-- <div class="loader">
     <div class="container">
       <img class="loading-img" src="./images/loading.svg" alt="lading-mg">
     </div>
-  </div>
+  </div> -->
+
   <template id="cards-template">
     <li class="card mt-3 movies__ietm-js " style="width: 18rem;">
-      <img class="card-img-top" src="" alt="">
-      <div class="js-card-body">
-        <h5 class="card-title card-title-js">Card title</h5>
-        <span class="card-year"></span>
-        <p class="card-categoty"></p>
-        <a class="whatch-trailer" href=""></a>
+      <img class="card__img-top"
+        src="https://c4.wallpaperflare.com/wallpaper/341/857/292/neon-asus-4k-rog-wallpaper-preview.jpg" alt="">
+      <div class="card__body-js">
+        <h5 class="card-title card__title-js">Card title</h5>
+        <span class="card__year">2017</span>
+        <p class="card__categoty">Uncategorized</p>
+        <div class="card__summary-wrapper summary">
+          <p class="summary__title">Summary</p>
+          <p class="summary__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex ratione deleniti
+            exercitationem ipsum aliquid hic deserunt autem modi pariatur sequi!</p>
+        </div>
+        <a class="whatch-trailer" href="" target="_blanc">whatch trailer</a>
       </div>
     </li>
   </template>
@@ -44,4 +55,5 @@
   <script src="js/movies.js"></script>
   <script src="./js/main.js"></script>
 </body>
+
 </html>

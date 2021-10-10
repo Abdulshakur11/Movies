@@ -1,27 +1,73 @@
 // ============ HTML ELEMENTS ====================== 
 var elCardsList = $_(".movies-list");
 var elMoviesTemplate = $_("#cards-template").content;
+var elFrom = $_(".form");
+var elSearchInput = $_(".search-input");
+
+// elCardsList.innerHTML = '';
 
 // =============== FUNCTION ========================
-var createMovieElement = function (movie) {
+var createMovieElement = function (movie, ) {
   var elNewMovie = elMoviesTemplate.cloneNode(true);
 
-  // elNewMovie.querySelector(".card-img-top").src = movie.ImageURL;
-  // elNewMovie.querySelector(".card-img-top").alt = movie.Title;
-  elNewMovie.querySelector(".card-title-js").textContent = movie.Title;
-  elNewMovie.querySelector(".card-year").textContent = movie.movie_year;
-  elNewMovie.querySelector(".card-categoty").textContent = movie.Categories.split("|").join(', ');
-  elNewMovie.querySelector(".whatch-trailer").textContent = "Whatch trailer";
-  elNewMovie.querySelector(".whatch-trailer").href = `https://www.youtube.com/watch?v=${movie.ytid}`
+  $_('.card__img-top', elNewMovie).src = movie.ImageUrl;
+  $_(".card__title-js", elNewMovie).textContent = movie.title;
+  $_(".card__year", elNewMovie).textContent = movie.year;
+  $_(".card__categoty", elNewMovie).textContent = movie.categories;
+  $_(".summary__title", elNewMovie).textContent = "Summary";
+  $_(".summary__text", elNewMovie).textContent = movie.summary;
+  $_(".whatch-trailer", elNewMovie).href = `https://www.youtube.com/watch?v=${movie.yuoTubeId}`
+  $_(".whatch-trailer", elNewMovie).textContent = "Whatch trailer";
 
   return elNewMovie;
 }
 
-movies.forEach(function (movie) {
-  elCardsList.appendChild(createMovieElement(movie));
-})
+var normilizedMovies = movies.map(function (movie, i) {
+  return {
+    id: i + 1,
+    title: movie.Title.toString(),
+    year: movie.movie_year,
+    categories: movie.Categories.split('|').join(', '),
+    summary: movie.summary,
+    ImageUrl: `http://i3.ytimg.com/vi/${movie.ytid}/hqdefault.jpg`,
+    imdId: movie.imdb_id,
+    imdbRating: movie.imdb_rating,
+    runtime: movie.runtime,
+    language: movie.language,
+    yuoTubeId: movie.ytid
+  }
+});
+
+
+var renderMovies = function (normilizedMovies) {
+  elCardsList.innerHTML = "";
+  var searchResultFragment = document.createDocumentFragment();
+  
+  normilizedMovies.forEach(function (mov) {
+    searchResultFragment.appendChild(createMovieElement(mov))
+  });
+  elCardsList.appendChild(searchResultFragment);
+}
+
+renderMovies(normilizedMovies.slice(0, 500));
+
+// ================ SEARCH FUNCTION =================
+var searchForMovies = function (evt) {
+  evt.preventDefault();
+
+  var searchQuery = new RegExp(elSearchInput.value.trim(), "gi");
+
+  var filteredMovies = normilizedMovies.filter(function (movie) {
+    return movie.title.match(searchQuery);
+  });
+  renderMovies(filteredMovies);
+
+}
+
+elFrom.addEventListener('submit', searchForMovies);
+
 
 var pageLoader = $_(".loader");
 window.addEventListener('load', function (evt) {
   pageLoader.remove();
-})
+});
