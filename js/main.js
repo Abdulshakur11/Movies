@@ -42,7 +42,7 @@ var normilizedMovies = movies.map(function (movie, i) {
 var renderMovies = function (normilizedMovies) {
   elCardsList.innerHTML = "";
   var searchResultFragment = document.createDocumentFragment();
-  
+
   normilizedMovies.forEach(function (mov) {
     searchResultFragment.appendChild(createMovieElement(mov))
   });
@@ -56,7 +56,8 @@ var searchForMovies = function (evt) {
   evt.preventDefault();
 
   var searchQuery = new RegExp(elSearchInput.value.trim(), "gi");
-
+  elSearchInput.value = null;
+  
   var filteredMovies = normilizedMovies.filter(function (movie) {
     return movie.title.match(searchQuery);
   });
