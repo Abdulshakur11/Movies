@@ -15,3 +15,15 @@ var createElement  = function (tagName, className, text) {
 
   return element;
 }
+
+let getYoutubeVideoLink = function (videoId) {
+  return `https://www.youtube.com/watch?v=${videoId}`
+}
+
+let getYoutubeBigThumbnail = function (videoId) {
+  return `http://i3.ytimg.com/vi/${videoId}/maxresdefault.jpg`
+}
+
+let getYoutubeThumbnail = function (videoId) {
+  return `http://i3.ytimg.com/vi/${videoId}/hqdefault.jpg`
+}

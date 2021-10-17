@@ -13,11 +13,29 @@
 <body>
 
   <header>
-    <h1 class="site-title">Movies trailer</h1>
+    <div class="container">
+      <h1 class="site-title">Movies trailer</h1>
+      <form class="form" action="#">
+        <input type="search" class="form-control search-input-js">
 
-    <form class="form" action="#">
-        <input type="search" class="form-control search-input">
-    </form>
+        <div class="row select-wrapper">
+
+          <select class="form-select select-js" aria-label="Sort by">
+            <option selected disabled hidden>Sort by</option>
+            <option value="A-z">A-z</option>
+            <option value="Z-a">Z-a</option>
+            <option value="high-rating">High-Raiting</option>
+            <option value="lower-raiting">Low-Raiting</option>
+            <option value="new-old">New-old</option>
+            <option value="old-new">Old-new</option>
+          </select>
+
+          <select class="form-control js-genre-select" aria-label="Genre">
+            <option value="all">All</option>
+          </select>
+        </div>
+      </form>
+    </div>
   </header>
   <main>
     <div class="container">
@@ -27,11 +45,7 @@
     </div>
   </main>
 
-  <!-- <div class="loader">
-    <div class="container">
-      <img class="loading-img" src="./images/loading.svg" alt="lading-mg">
-    </div>
-  </div> -->
+
 
   <template id="cards-template">
     <li class="card mt-3 movies__ietm-js " style="width: 18rem;">
@@ -39,21 +53,32 @@
         src="https://c4.wallpaperflare.com/wallpaper/341/857/292/neon-asus-4k-rog-wallpaper-preview.jpg" alt="">
       <div class="card__body-js">
         <h5 class="card-title card__title-js">Card title</h5>
-        <span class="card__year">2017</span>
-        <p class="card__categoty">Uncategorized</p>
-        <div class="card__summary-wrapper summary">
+        <div class="card__year-wrapper">
+          <p class="card__year-title">Year:</p>
+          <span class="card__year"></span>
+        </div>
+        <div class="card__raiting-wrapper card__year-wrapper">
+          <p class="card__raiting-title card__year-title">Raiting:</p>
+          <span class="card__raiting">Raiting</span>
+        </div>
+        <div class="card__categoty-wrapper card__year-wrapper">
+          <p class="card__category-title card__year-title">Category:</p>
+          <p class="card__categoty">Uncategorized</p>
+        </div>
+        <!-- <div class="card__summary-wrapper summary">
           <p class="summary__title">Summary</p>
           <p class="summary__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex ratione deleniti
             exercitationem ipsum aliquid hic deserunt autem modi pariatur sequi!</p>
-        </div>
+        </div> -->
         <a class="whatch-trailer" href="" target="_blanc">whatch trailer</a>
       </div>
     </li>
   </template>
   <script src="./js/bootstrap.min.js"></script>
-  <script src="./js/utils.js"></script>
   <script src="js/movies.js"></script>
+  <script src="./js/utils.js"></script>
   <script src="./js/main.js"></script>
+  <script src="./js/functions.js"></script>
 </body>
 
 </html>

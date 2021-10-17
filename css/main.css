@@ -36,7 +36,7 @@ body {
   -webkit-background-clip: text;
 }
 
-.search-input {
+.search-input-js {
   width: 100%;
   max-width: 550px;
   display: block;
@@ -44,6 +44,12 @@ body {
   margin-right: auto;
   margin-top: 20px;
 }
+
+/* .select-js {
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: 150px;
+} */
 
 .movies-list {
   width: 100%;
@@ -70,10 +76,9 @@ body {
   position: relative;
   width: 100%;
   max-width: 500px;
-  height: 450px;
+  height: 400px;
   margin: 10px;
   list-style-type: none;
-  box-shadow: 0px 5px 10px rgba(247, 247, 247, 0.685);
   transition: all 0.3s ease;
   background-color: rgb(190, 190, 190);
 }
@@ -82,18 +87,40 @@ body {
   box-shadow: none;
 }
 
+
 .card__title-js {
   font-size: 18px;
   font-weight: bold;
   margin: 0;
   color: rgb(0, 0, 0);
 }
+.card__year-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.card__year-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  margin: 0;
+  margin-right: 10px;
+}
 
 .card__year {
+  display: block;
   font-size: 14px;
   font-weight: bold;
   color: rgb(0, 0, 0);
+  margin-top: 5px;
+}
 
+.card__raiting {
+  font-size: 14px;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  margin-top: 5px;
 }
 
 .card__categoty {
@@ -135,6 +162,29 @@ body {
   margin: 0;
   z-index: 5;
   background-color: rgb(190, 190, 190);
+}
+
+.select-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.select-js {
+  width: 100%;
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+.js-genre-select {
+  
+  width: 100%;
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
 }
 
 ::-webkit-scrollbar {

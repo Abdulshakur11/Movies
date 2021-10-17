@@ -1,74 +1,36 @@
-// ============ HTML ELEMENTS ====================== 
-var elCardsList = $_(".movies-list");
-var elMoviesTemplate = $_("#cards-template").content;
-var elFrom = $_(".form");
-var elSearchInput = $_(".search-input");
+// ============== HTML ELEMENTS ============
+const elForm = $_(".form");
+const elCradList = $_(".movies-list");
+const elSearchInput = $_(".search-input-js");
+const elSelect = $_(".select-js");
+const elSelectCategories = $_(".js-genre-select");
+const elCradTemlate = $_("#cards-template").content;
 
-// elCardsList.innerHTML = '';
-
-// =============== FUNCTION ========================
-var createMovieElement = function (movie, ) {
-  var elNewMovie = elMoviesTemplate.cloneNode(true);
-
-  $_('.card__img-top', elNewMovie).src = movie.ImageUrl;
-  $_(".card__title-js", elNewMovie).textContent = movie.title;
-  $_(".card__year", elNewMovie).textContent = movie.year;
-  $_(".card__categoty", elNewMovie).textContent = movie.categories;
-  $_(".summary__title", elNewMovie).textContent = "Summary";
-  $_(".summary__text", elNewMovie).textContent = movie.summary;
-  $_(".whatch-trailer", elNewMovie).href = `https://www.youtube.com/watch?v=${movie.yuoTubeId}`
-  $_(".whatch-trailer", elNewMovie).textContent = "Whatch trailer";
-
-  return elNewMovie;
-}
-
-var normilizedMovies = movies.map(function (movie, i) {
+// =============== NORMALIZED MOVIES ================
+let normalizedMovies = movies.map((movie, i) => {
   return {
     id: i + 1,
     title: movie.Title.toString(),
     year: movie.movie_year,
-    categories: movie.Categories.split('|').join(', '),
-    summary: movie.summary,
-    ImageUrl: `http://i3.ytimg.com/vi/${movie.ytid}/hqdefault.jpg`,
-    imdId: movie.imdb_id,
-    imdbRating: movie.imdb_rating,
-    runtime: movie.runtime,
+    categories: movie.Categories.split("|"),
+    ImageUrl: getYoutubeThumbnail(movie.ytid),
+    raiting: movie.imdb_rating,
     language: movie.language,
-    yuoTubeId: movie.ytid
+    youTubeId: getYoutubeVideoLink(movie.ytid), 
   }
 });
 
+// ========= ELEMENTS CALLED FROM TAMPALTE TO FUNCTION ===========
+let createMovieElement = (movie) => {
+  let newMovie = elCradTemlate.cloneNode(true);
 
-var renderMovies = function (normilizedMovies) {
-  elCardsList.innerHTML = "";
-  var searchResultFragment = document.createDocumentFragment();
-
-  normilizedMovies.forEach(function (mov) {
-    searchResultFragment.appendChild(createMovieElement(mov))
-  });
-  elCardsList.appendChild(searchResultFragment);
+  $_(".card__img-top", newMovie).src = movie.ImageUrl;
+  $_(".card__title-js", newMovie).textContent = movie.title;
+  $_(".card__year", newMovie).textContent = movie.year;
+  $_(".card__raiting", newMovie).textContent = movie.raiting;
+  $_(".card__categoty", newMovie).textContent = movie.categories;
+  $_(".whatch-trailer", newMovie).tectContent = "Whatch thriller.";
+  $_(".whatch-trailer", newMovie).href = `https://www.youtube.com/watch?v=${movie.youTubeId}`;
+  return newMovie;
 }
 
-renderMovies(normilizedMovies.slice(0, 500));
-
-// ================ SEARCH FUNCTION =================
-var searchForMovies = function (evt) {
-  evt.preventDefault();
-
-  var searchQuery = new RegExp(elSearchInput.value.trim(), "gi");
-  elSearchInput.value = null;
-  
-  var filteredMovies = normilizedMovies.filter(function (movie) {
-    return movie.title.match(searchQuery);
-  });
-  renderMovies(filteredMovies);
-
-}
-
-elFrom.addEventListener('submit', searchForMovies);
-
-
-var pageLoader = $_(".loader");
-window.addEventListener('load', function (evt) {
-  pageLoader.remove();
-});
