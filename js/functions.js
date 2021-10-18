@@ -71,15 +71,12 @@ let ceateGenreCategoriesOptions = () => {
 }
 ceateGenreCategoriesOptions();
 
-// =========== FUNCTION FOR SELECT GENRES ==========
-elSelectCategories.addEventListener("change", () => {
-  category(normalizedMovies);
-})
 
 // ========= FUNCTION FOR SEARCH ========== 
 elForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
   searchForMovies();
+  category(normalizedMovies);
 });
 
 
