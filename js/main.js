@@ -29,7 +29,7 @@ let createMovieElement = (movie) => {
   $_(".card__year", newMovie).textContent = movie.year;
   $_(".card__raiting", newMovie).textContent = movie.raiting;
   $_(".card__categoty", newMovie).textContent = movie.categories;
-  $_(".whatch-trailer", newMovie).tectContent = "Whatch thriller.";
+  $_(".whatch-trailer", newMovie).tectContent = "Watch thriller.";
   $_(".whatch-trailer", newMovie).href = `https://www.youtube.com/watch?v=${movie.youTubeId}`;
   return newMovie;
 }
